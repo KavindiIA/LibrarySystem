@@ -35,7 +35,7 @@ The Library Management System is a comprehensive Java-based desktop application 
 1. **Java Development Kit:** JDK 22 or later.
 2. **Eclipse IDE:** Ensure Eclipse is installed and configured for Java development.
 3. **MySQL Server:** Set up and configure MySQL for database connectivity.
-4. **JasperReports Library:** Add the required JasperReports JAR files to the project.
+4. **JasperReports Library:** Add the required JasperReports pom.xml files to the project.
 5. **Email Service Configuration:** Configure SMTP settings in the application for email functionality.
 
 ## Usage

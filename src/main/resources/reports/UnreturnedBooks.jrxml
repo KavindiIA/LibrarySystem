@@ -1,0 +1,178 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="UnreturnedBooks" language="java" columnCount="1" pageWidth="700" pageHeight="700" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1abb6423-c5ad-4db9-89a1-bbc1e880a8f5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="LibManagement"/>
+	<query language="SQL"><![CDATA[SELECT 
+    BorrowRecords.*, 
+    Books.Title, 
+    Books.Author
+FROM 
+    BorrowRecords
+JOIN 
+    Books ON BorrowRecords.BookID = Books.BookID
+WHERE 
+    BorrowRecords.ReturnDate IS NULL
+]]></query>
+	<field name="RecordID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="RecordID"/>
+		<property name="com.jaspersoft.studio.field.label" value="RecordID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="StudentID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="StudentID"/>
+		<property name="com.jaspersoft.studio.field.label" value="StudentID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="BookID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="BookID"/>
+		<property name="com.jaspersoft.studio.field.label" value="BookID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="BorrowDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="BorrowDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="BorrowDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="ReturnDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ReturnDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="ReturnDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="Fine" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Fine"/>
+		<property name="com.jaspersoft.studio.field.label" value="Fine"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowrecords"/>
+	</field>
+	<field name="Title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Title"/>
+		<property name="com.jaspersoft.studio.field.label" value="Title"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="books"/>
+	</field>
+	<field name="Author" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Author"/>
+		<property name="com.jaspersoft.studio.field.label" value="Author"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="books"/>
+	</field>
+	<variable name="BookID1" resetType="Column" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{BookID}]]></expression>
+	</variable>
+	<variable name="RecordID1" resetType="Column" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$F{RecordID}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<title height="61" splitType="Stretch">
+		<element kind="staticText" uuid="d41eb071-118e-4535-9c2e-7f9fc9a9616b" stretchType="NoStretch" x="80" y="0" width="500" height="61" fontName="Times New Roman" fontSize="28.0" bold="true" underline="true" hTextAlign="Center" vTextAlign="Middle">
+			<paragraph lineSpacing="1_1_2"/>
+			<text><![CDATA[Non-Returned Book Details]]></text>
+			<box>
+				<pen lineWidth="0.0"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="104" splitType="Stretch">
+		<element kind="textField" uuid="873581a2-d419-4556-9a2a-bcdcdf09063d" x="60" y="2" width="150" height="30" fontName="Times New Roman" fontSize="16.0" pattern="MMMMM dd, yyyy" blankWhenNull="true" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="da1d43c9-81bd-45cb-bf39-fd4cb89a0173" x="60" y="32" width="130" height="30" fontName="Times New Roman" fontSize="16.0" pattern="HH:mm" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="9159c8d9-9f0b-47de-a14e-d74aca0da4ec" x="20" y="2" width="60" height="30" fontName="Times New Roman" fontSize="16.0" vTextAlign="Middle">
+			<text><![CDATA[Date:]]></text>
+		</element>
+		<element kind="staticText" uuid="894a308b-0b18-4c4d-abde-242def1a25b5" x="20" y="32" width="60" height="30" fontName="Times New Roman" fontSize="16.0" vTextAlign="Middle">
+			<text><![CDATA[Time:   ]]></text>
+		</element>
+		<element kind="staticText" uuid="90053d8d-47f2-4b89-9d43-698733b4ba59" x="20" y="61" width="110" height="30" fontName="Times New Roman" fontSize="16.0" vTextAlign="Middle">
+			<text><![CDATA[Generated By:]]></text>
+		</element>
+		<element kind="staticText" uuid="ac0a6b32-4903-4382-8761-c3d3fcbc221f" x="120" y="62" width="159" height="30" fontName="Times New Roman" fontSize="16.0" vTextAlign="Middle">
+			<text><![CDATA[Mr.Pawan (Librarian)]]></text>
+		</element>
+		<element kind="line" uuid="9d4d321d-4941-495e-b8db-4e6a9e4461ed" x="11" y="100" width="639" height="1"/>
+	</pageHeader>
+	<columnHeader height="39" splitType="Stretch">
+		<element kind="staticText" uuid="e94496cd-c987-468b-9499-6c2b6bedd486" mode="Opaque" x="25" y="20" width="95" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Record ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbbec368-51af-437e-9942-8c45af0271b4"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="8bd2d586-4d41-4e08-a241-63ae19790d67" mode="Opaque" x="120" y="20" width="90" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Student ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e33c716-fd52-4b60-b23d-873da4375267"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="83e1f81e-5ba2-430a-9319-10e8ec859797" mode="Opaque" x="300" y="20" width="100" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Book Title]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7fec8a54-ffe7-4af3-acc7-07c8b3878507"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="94430fbe-92a2-46d7-8ff2-b130afb0ef4f" mode="Opaque" x="400" y="20" width="120" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Author]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a88bf64-353c-4aee-b705-4c01e24ae7a0"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="763a76f3-1ad3-4c84-b068-aca438209178" mode="Opaque" x="210" y="20" width="90" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Book ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="884ea899-70eb-4f9a-ab57-a81bd7b18ee5"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b9bdc511-6b18-4d63-970e-702b494d9396" mode="Opaque" x="520" y="20" width="104" height="19" backcolor="#A6A6A6" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Borrowed Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2be93cd2-ddc3-4dce-bf0f-c6b3a85f2cd4"/>
+			<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<element kind="textField" uuid="51dff552-f3e0-4cbc-aea2-db14d7f05c77" x="25" y="10" width="95" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{RecordID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbbec368-51af-437e-9942-8c45af0271b4"/>
+			</element>
+			<element kind="textField" uuid="f2c483e4-1b05-4899-ab4c-d9bffd3bf503" x="120" y="10" width="90" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{StudentID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e33c716-fd52-4b60-b23d-873da4375267"/>
+			</element>
+			<element kind="textField" uuid="89a9aa66-3c6a-45c1-bb2e-1dea30b548f1" x="300" y="10" width="100" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{Title}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7fec8a54-ffe7-4af3-acc7-07c8b3878507"/>
+			</element>
+			<element kind="textField" uuid="5551d672-c835-4eb6-b7a6-4b06f811d22a" x="400" y="10" width="120" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{Author}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a88bf64-353c-4aee-b705-4c01e24ae7a0"/>
+			</element>
+			<element kind="textField" uuid="cda449c7-794c-4f5b-9ada-7a9d70918acd" x="210" y="10" width="90" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{BookID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="884ea899-70eb-4f9a-ab57-a81bd7b18ee5"/>
+			</element>
+			<element kind="textField" uuid="564d067f-56d6-408c-bb29-894149d1abac" x="520" y="10" width="104" height="19" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$F{BorrowDate}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2be93cd2-ddc3-4dce-bf0f-c6b3a85f2cd4"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="35" splitType="Stretch">
+		<element kind="textField" uuid="7d633992-e557-4c65-87e4-0aaf0697b51e" x="524" y="10" width="100" height="19" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Center">
+			<expression><![CDATA[$V{RecordID1}]]></expression>
+		</element>
+		<element kind="staticText" uuid="4158790d-f3b6-4c9e-93be-973dcf3ee89a" x="438" y="10" width="90" height="18" fontName="Times New Roman" fontSize="14.0" bold="true">
+			<text><![CDATA[Total Records]]></text>
+		</element>
+		<element kind="line" uuid="ce010cec-0467-4837-93a1-b5f49b2a94f0" x="438" y="0" width="183" height="1"/>
+	</columnFooter>
+	<pageFooter height="33" splitType="Stretch">
+		<element kind="line" uuid="cbe07478-f9a3-492d-94e3-a72ae221e9e3" x="10" y="12" width="639" height="1"/>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>

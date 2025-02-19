@@ -1,4 +1,4 @@
-# Library Management System
+# Library Management System📚
 
 ## Overview
 The Library Management System is a comprehensive Java-based desktop application developed using Eclipse IDE. This project leverages Java Swing for the graphical user interface and is designed to facilitate the management of library operations such as book borrowing, member registration, and inventory tracking. The application incorporates robust features such as secure authentication, email verification, and reporting capabilities.
